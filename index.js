@@ -30,17 +30,16 @@ controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "Alleeez!")
 })
 
-controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
+controller.hears(['hello', 'hi', 'hey', 'yo'], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'Alleeez!')
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Alleeez!')
-  bot.reply(message, 'It\'s nice to talk to you directly.')
 })
 
 controller.hears('.*', ['mention'], function (bot, message) {
-  bot.reply(message, 'Alleeez! :heart:')
+  bot.reply(message, 'Alleeez!')
 })
 
 controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
@@ -50,6 +49,10 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
       '`@<your bot\'s name>` to demonstrate detecting a mention.\n' +
       '`bot help` to see this again.'
   bot.reply(message, help)
+})
+
+controller.on('slash_command', function(bot, message) {
+  bot.replyPublic(message, 'Alleeez!');
 })
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
