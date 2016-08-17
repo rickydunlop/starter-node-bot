@@ -52,7 +52,7 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
 })
 
 controller.on('slash_command', function(bot, message) {
-  bot.replyPublic(message, 'Alleeez!');
+  bot.reply(message, 'Alleeez!');
 })
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
